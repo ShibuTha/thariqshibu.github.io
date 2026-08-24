@@ -97,6 +97,8 @@
                 <img
                     src="Images/Toy sales - Executive Dashboard.png"
                     alt="Maven Toys Power BI dashboard"
+                    class="clickable-image"
+                    onclick="openLightbox(this)"
                 >
 
                 <div class="image-overlay">
@@ -349,14 +351,15 @@
 
                     <img
                         src="Images/Toy sales - Executive Dashboard.png"
-                        alt="Toy Sales Power BI Overview dashboard"
+                        alt="Toy Sales Power BI Executive Dashboard"
+                        class="clickable-image"
+                        onclick="openLightbox(this)"
                     >
 
                     <p>Executive Overview</p>
-                    
-                </div>            
+
+                </div>     
             
-            <div class="dashboard-gallery">
 
                 <div class="dashboard-image">
 
@@ -375,6 +378,8 @@
                     <img
                         src="Images/Toy sales - Product Dashboard.png"
                         alt="Toy Sales Power BI Products dashboard"
+                        class="clickable-image"
+                        onclick="openLightbox(this)"
                     >
 
                     <p>Product Analysis</p>
@@ -387,6 +392,8 @@
                     <img
                         src="Images/Toy sales - Inventory Dashboard.png"
                         alt="Toy Sales Power BI Inventory dashboard"
+                        class="clickable-image"
+                        onclick="openLightbox(this)"
                     >
 
                     <p>Inventory Analysis</p>
@@ -399,6 +406,8 @@
                     <img
                         src="Images/Toy sales - Store Dashboard.png"
                         alt="Toy Sales Power BI Store dashboard"
+                        class="clickable-image"
+                        onclick="openLightbox(this)"
                     >
 
                     <p>Store Analysis</p>
@@ -631,6 +640,63 @@
 
     </footer>
 
+<!-- Image Lightbox -->
 
+<div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+
+    <button class="lightbox-close" onclick="closeLightbox()">
+        &times;
+    </button>
+
+    <img id="lightbox-image" src="" alt="Expanded dashboard">
+
+</div>
+
+
+<script>
+
+function openLightbox(image) {
+
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightbox-image");
+
+    lightboxImage.src = image.src;
+    lightboxImage.alt = image.alt;
+
+    lightbox.classList.add("active");
+
+    document.body.classList.add("lightbox-open");
+}
+
+
+function closeLightbox(event) {
+
+    if (
+        event &&
+        event.target !== event.currentTarget &&
+        !event.target.classList.contains("lightbox-close")
+    ) {
+        return;
+    }
+
+    const lightbox = document.getElementById("lightbox");
+
+    lightbox.classList.remove("active");
+
+    document.body.classList.remove("lightbox-open");
+}
+
+
+/* Allow the Escape key to close the image */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+        closeLightbox();
+    }
+
+});
+
+</script>
 </body>
 </html>
