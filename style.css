@@ -935,7 +935,42 @@ footer {
     z-index: 9999;
 }
 
-/* ...rest of the lightbox CSS... */
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+#lightbox-image {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+
+    background: none;
+    border: none;
+
+    color: #f1f5f9;
+    font-size: 40px;
+    line-height: 1;
+
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.lightbox-close:hover {
+    color: #60a5fa;
+}
+
+body.lightbox-open {
+    overflow: hidden;
+}
 
 /* ================================
    VIDEO
